@@ -170,11 +170,15 @@ func main() {
 			"U8":         u8remaining,
 		}
 
+		// add timestamp for Europe/Berlin in Format 15:04
+		loc, _ := time.LoadLocation("Europe/Berlin")
+		now = time.Now().In(loc)
+		
 		// merge wheather and Busresponse
 		response := map[string]interface{}{
 			"bus":       busResponse,
 			"wheather":  wheatherResponse,
-			"timestamp": time.Now().Format("15:04"),
+			"timestamp": now.Format("15:04"),
 		}
 
 		w.Header().Set("Content-Type", "application/json")
