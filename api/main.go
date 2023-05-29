@@ -131,7 +131,7 @@ func main() {
 		}
 		// delete everything under 10 minutes and only show the next 3 u8 departures
 		for i := len(u8remaining) - 1; i >= 0; i-- {
-			if u8remaining[i] < 10 {
+			if u8remaining[i] < 5 {
 				u8remaining = append(u8remaining[:i], u8remaining[i+1:]...)
 			}
 		}
